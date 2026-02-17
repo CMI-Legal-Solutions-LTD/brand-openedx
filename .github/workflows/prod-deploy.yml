@@ -1,9 +1,9 @@
-name: Brand Openedx Dev Deploy
+name: Brand Openedx Deploy
 
 on:
   push:
     branches:
-      - main
+      - prod
   
   workflow_dispatch:
 
@@ -15,9 +15,9 @@ jobs:
       - name: Connect to EC2 and deploy brand-openedx
         uses: appleboy/ssh-action@v0.1.10
         with:
-          host: ${{ secrets.EC2_HOST_DEV }}
-          username: ${{ secrets.EC2_USER_DEV }}
-          key: ${{ secrets.EC2_SSH_KEY_DEV }}
+          host: ${{ secrets.EC2_HOST_PROD }}
+          username: ${{ secrets.EC2_USER_PROD }}
+          key: ${{ secrets.EC2_SSH_KEY_PROD }}
           command_timeout: 180m0s
           script: |
             echo "Navigating to brand-openedx directory..."
